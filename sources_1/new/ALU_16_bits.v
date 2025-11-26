@@ -62,8 +62,8 @@ module ALU_16_bits(
     //AUX FLAG
     casez(F)
     INC: Status[AF]=  A[3:0]==4'hf;
-    ADD: Status[AF]= (A[3:0]+B[3:0])>4'hf;
-    ADC: Status[AF]= (A[3:0]+B[3:0]+Cin)>4'hf;
+    ADD: Status[AF]= {1'b0,A[3:0]}+{1'b0,B[3:0]}>4'hf;
+    ADC: Status[AF]= {1'b0,A[3:0]}+{1'b0,B[3:0]}+Cin>4'hf;
     DEC: Status[AF]=  A[3:0]==4'h0;
     SUB: Status[AF]=  A[3:0]< B[3:0];
     SBB: Status[AF]=  A[3:0]< (B[3:0]+Cin);
