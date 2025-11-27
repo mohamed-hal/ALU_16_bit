@@ -66,7 +66,7 @@ module ALU_16_bits(
     ADC: Status[AF]= {1'b0,A[3:0]}+{1'b0,B[3:0]}+Cin>4'hf;
     DEC: Status[AF]=  A[3:0]==4'h0;
     SUB: Status[AF]=  A[3:0]< B[3:0];
-    SBB: Status[AF]=  A[3:0]< (B[3:0]+Cin);
+    SBB: Status[AF]= {1'b0,A[3:0]}< {1'b0,B[3:0]}+Cin;
     default: Status[AF]=1'bx;
     endcase
     end
