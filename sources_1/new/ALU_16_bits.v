@@ -14,8 +14,8 @@ module ALU_16_bits(
     ///////////////////////////////////////////////////////////////////////////////OPERATIONS
     always @(*)begin
     casez(F)
-    INC: {Co15,Result}=A+16'd1;
-    DEC: {Co15,Result}=A+16'hffff;
+    INC: {Co15,Result}=A+1;
+    DEC: {Co15,Result}=A-1;
     ADD: {Co15,Result}=A+B;
     ADC: {Co15,Result}=A+B+Cin;
     SUB: {Co15,Result}=A-B;
